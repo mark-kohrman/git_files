@@ -48,7 +48,7 @@ max = 0
 i = 0
 while i < numbers.length
   i_2 = 0
-  
+   
 
 
 #  5. Use a nested loop to compute the sum of all the numbers in an array of number pairs.
