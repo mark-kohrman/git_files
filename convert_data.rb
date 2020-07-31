@@ -1,11 +1,13 @@
 #  1. Convert an array of arrays into a hash.
 #     For example, [[1, 3], [8, 9], [2, 16]] becomes {1 => 3, 8 => 9, 2 => 16}.
-numbers = [[1, 3], [8, 9], [2, 16]] 
+numbers = [1, 3]
 hash_numbers = {}
-numbers.each do |number|
-  hash_numbers = number[0]=> number[1]
+hash_numbers = numbers[0]
 
-end
+# numbers.each do |number|
+#   hash_numbers = number[0]=> number[1]
+
+# end
 
 p hash_numbers
 
