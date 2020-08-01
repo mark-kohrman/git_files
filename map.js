@@ -93,7 +93,13 @@ console.log(ageTimesTwo);
 
 // # 10. Start with an array of numbers and create a new array with each number converted into a string.
 // #     For example, [1, 2, 3] becomes ["1", "2", "3"].
+var numeros = [2, 3, 4];
+var strings = [];
 
+numeros.forEach(function (numero) {
+  strings.push(numero.toString());
+});
+console.log(strings);
 
 // # SOLUTIONS (using while loop): https://gist.github.com/peterxjang/b9ac4390aad2301a2238efc95c904f3d
 // # SOLUTIONS (using .each shortcut): https://gist.github.com/peterxjang/66598fd7cdbc67fe663624e217cebbaf
