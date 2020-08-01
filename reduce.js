@@ -7,11 +7,17 @@ var sum = 0;
 numbers.forEach(function (number) {
   sum += number;
 });
-console.log(sum)
+// console.log(sum)
 
 // #  2. Start with an array of strings and combine them all into a single string.
 // #     For example, ["volleyball", "basketball", "badminton"] becomes "volleyballbasketballbadminton".
+var sports = ["volleyball", "basketball", "badminton"];
+var sportsTogether = "";
 
+sports.forEach(function (sport) {
+  sportsTogether += sport;
+});
+console.log(sportsTogether)
 // #  3. Start with an array of hashes and compute the sum of the prices (from the :price key).
 // #     For example, [{name: "chair", price: 100}, {name: "pencil", price: 1}, {name: "book", price: 4}] becomes 105.
 
@@ -20,6 +26,14 @@ console.log(sum)
 
 // #  5. Start with an array of strings and compute the total length of all the strings.
 // #     For example, ["volleyball", "basketball", "badminton"] becomes 29.
+var strings = ["volleyball", "basketball", "badminton"];
+var totalLength = 0;
+
+strings.forEach(function (string) {
+  totalLength += string.length;
+});
+console.log(totalLength)
+
 
 // #  6. Start with an array of hashes and find the hash with the lowest price (from the :price key).
 // #     For example, [{name: "chair", price: 100}, {name: "pencil", price: 1}, {name: "book", price: 4}] becomes {name: "pencil", price: 1}.
@@ -34,7 +48,7 @@ while (i < numbas.length) {
   product *= numbas[i]
   i++;
 }
-console.log(product);
+// console.log(product);
 
 // #  8. Start with an array of strings and combine them all into a single string, separated by dashes.
 // #     For example, ["volleyball", "basketball", "badminton"] becomes "-volleyball-basketball-badminton-".
@@ -52,7 +66,7 @@ numeros.forEach(function (numero) {
     maxNumber = numero;
   }
 });
-console.log(maxNumber);
+// console.log(maxNumber);
 
 // # SOLUTIONS (using while loop): https://gist.github.com/peterxjang/376c8931a48549889eb3c9bc091e9f43
 // # SOLUTIONS (using .each shortcut): https://gist.github.com/peterxjang/379c9945774f51027750c59d6e4395df
