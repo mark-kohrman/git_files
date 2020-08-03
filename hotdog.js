@@ -1,9 +1,9 @@
 function seeFood(photos) {
-  if (photos === "photo of hot dog") {
-    return "Hot Dog";
+  if (photos === "photo of hotdog") {
+    return "Hotdog";
   } else {
-    return "Not Hot Dog";
+    return "Not Hotdog";
   }
 }
 
-console.log(seeFood("photo of hot dog"));
+console.log(seeFood("photo of lemon"));
