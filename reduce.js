@@ -17,7 +17,7 @@ var sportsTogether = "";
 sports.forEach(function (sport) {
   sportsTogether += sport;
 });
-console.log(sportsTogether)
+// console.log(sportsTogether)
 // #  3. Start with an array of hashes and compute the sum of the prices (from the :price key).
 // #     For example, [{name: "chair", price: 100}, {name: "pencil", price: 1}, {name: "book", price: 4}] becomes 105.
 
@@ -32,7 +32,7 @@ var totalLength = 0;
 strings.forEach(function (string) {
   totalLength += string.length;
 });
-console.log(totalLength)
+// console.log(totalLength)
 
 
 // #  6. Start with an array of hashes and find the hash with the lowest price (from the :price key).
@@ -52,6 +52,14 @@ while (i < numbas.length) {
 
 // #  8. Start with an array of strings and combine them all into a single string, separated by dashes.
 // #     For example, ["volleyball", "basketball", "badminton"] becomes "-volleyball-basketball-badminton-".
+var items = ["volleyball", "basketball", "badminton"];
+var itemString = "-";
+
+items.forEach(function (item) {
+  itemString += item + "-";
+});
+
+console.log(itemString);
 
 // #  9. Start with an array of hashes and find the hash with the shortest name (from the :name key).
 // #     For example, [{name: "chair", price: 100}, {name: "pencil", price: 1}, {name: "book", price: 4}] becomes {name: "book", price: 4}.
