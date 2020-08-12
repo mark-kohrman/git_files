@@ -14,6 +14,15 @@ p hash
 
 #  2. Convert an array of hashes into a hash using the :id key from the array's hashes as the keys in the new hash.
 #     For example, [{id: 1, color: "blue", price: 32}, {id: 2, color: "red", price: 12}] becomes {1 => {id: 1, color: "blue", price: 32}, 2 => {id: 2, color: "red", price: 12}}.
+items = [{id: 1, color: "blue", price: 32}, {id: 2, color: "red", price: 12}]
+hash1 = {}
+items.each do |item|
+  key = item[:id]
+  value = item
+  hash1[key] = value
+end
+p hash1
+
 
 #  3. Convert a string into a hash with keys for each letter in the string and values for the number of times the letter appears in the string.
 #     For example, "bookkeeper" becomes {"b" => 1, "o" => 2, "k" => 2, "e" => 3, "p" => 1, "r" => 1}.
