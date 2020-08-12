@@ -5,10 +5,10 @@ var hashNumbers = {};
 var i = 0;
 
 while (i < numbers.length) {
-  var key = numbers[0];
-  var value = numbers[1];
+  var key = numbers[i][0];
+  var value = numbers[i][1];
   hashNumbers[key] = value;
-  ++i;
+  i++;
 }
 console.log(hashNumbers);
 
