@@ -26,7 +26,24 @@ p hash1
 
 #  3. Convert a string into a hash with keys for each letter in the string and values for the number of times the letter appears in the string.
 #     For example, "bookkeeper" becomes {"b" => 1, "o" => 2, "k" => 2, "e" => 3, "p" => 1, "r" => 1}.
+string = "foolhardyyyffh"
+string_hash = {}
+i = 0
+while i < string.length 
+  key = string[i]
+  value = string_hash[key]
+  if value == nil
+    current_value = 1
+    string_hash[key] = current_value
+  else
+    current_value = string_hash[key] + 1
+    string_hash[key] = current_value
+  end
+  
+  i += 1
 
+end
+p string_hash
 #  4. Convert a hash into an array of arrays.
 #     For example, {"chair" => 100, "book" => 14} becomes [["chair", 100], ["book", 14]].
 
