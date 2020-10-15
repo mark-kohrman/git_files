@@ -1,17 +1,25 @@
-def end_arr_add(arr, element)
-  arr.push(element)
-end
+# Each object in Ruby may have methods associated with it. To demonstrate this, we want you to print whether a number is even or odd. A number has an even? method associated with it, which returns true or false based on the parity of the number.
 
-def begin_arr_add(arr, element)
-    arr.unshift(element)
-end
+# Assuming a variable number is already defined, check whether a given number is even or not.
 
-def index_arr_add(arr, index, element)
-    arr.insert(index, element)
-end
+# Hint
 
-def index_arr_multiple_add(arr, index)
-    arr.push(index)
-end
+# Type in the code-editor
 
-p index_arr_add([1, 4, 8], 1, 900)
+# return number.even?
+# or
+
+# number.even?
+# Input Format
+
+# The first line of input contains an integer . The next  contains one integer in each line.
+
+# Output Format
+
+# The output is handled by the code written in the editor.
+def odd_or_even(number)
+
+  number.even?
+
+end
+p odd_or_even(9)
