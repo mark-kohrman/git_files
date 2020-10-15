@@ -1,25 +1,29 @@
-# Each object in Ruby may have methods associated with it. To demonstrate this, we want you to print whether a number is even or odd. A number has an even? method associated with it, which returns true or false based on the parity of the number.
+# You've updated the score of every HackerRank user who participated in a contest. Sometimes, HackerRank admins also participate in a given contest but care is taken to ensure that their submissions do not get any score and their score is not updated.
 
-# Assuming a variable number is already defined, check whether a given number is even or not.
+# Like the previous challenge, you are given a method scoring with an array passed as an argument. Each element of the array is of class User.
+
+# User has two public methods, is_admin? and update_score. Your task in this challenge is to use the control structure unless and update all elements of the array who are not admins.
 
 # Hint
 
-# Type in the code-editor
-
-# return number.even?
+# unless user.is_admin?
+#     user.update_score
+# end
 # or
 
-# number.even?
-# Input Format
+# user.update_score unless user.is_admin? 
+# The above code is a Ruby one liner.
 
-# The first line of input contains an integer . The next  contains one integer in each line.
+# Explanation
 
-# Output Format
-
-# The output is handled by the code written in the editor.
-def odd_or_even(number)
-
-  number.even?
-
+# unless is the logical equivalent of if not
+def scoring(array)
+  i = 0
+  while i < array.length
+    user = array[i]
+    unless user.is_admin?
+      user.update_score
+    end
+    i += 1
+  end
 end
-p odd_or_even(9)
