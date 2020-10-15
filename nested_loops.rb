@@ -1,55 +1,26 @@
 #  1. Use a nested loop to convert an array of number pairs into a single flattened array.
 #     For example, [[1, 3], [8, 9], [2, 16]] becomes [1, 3, 8, 9, 2, 16].
-numbers = [[1, 3], [8, 9], [2, 16]]
-new_numbers = []
+arrays = [[1, 3], [8, 9], [2, 16]]
+new_array = []
 i = 0
-while i < numbers.length
-  i_2 = 0
-  while i_2 < numbers[i].length
-    new_numbers << numbers[i][i_2]
-    i_2 += 1
+while i < arrays.length
+  i2 = 0
+  while i2 < arrays[i].length
+    new_array << arrays[i][i2]
+    i2 += 1
   end
   i += 1
 end
-p new_numbers
+p new_array
 
 #  2. Use a nested loop with two arrays of strings to create a new array of strings with each string combined.
 #     For example, ["a", "b", "c"] and ["d", "e", "f", "g"] becomes ["ad", "ae", "af", "ag", "bd", "be", "bf", "bg", "cd", "ce", "cf", "cg"].
-letters_1 = ["a", "b", "c"]  
-letters_2 = ["d", "e", "f", "g"]
 
-combined_letters = []
-
-letters_1.each do |letter_1|
-  letters_2.each do |letter_2|
-    combined_letters << letter_1 + letter_2
-  end
-end
-p combined_letters
 #  3. Use a nested loop with one array of strings to create a new array that contains every combination of each string with every other string in the array.
 #     For example, ["a", "b", "c", "d"] becomes ["ab", "ac", "ad", "ba", "bc", "bd", "ca", "cb", "cd", "da", "db", "dc"].
-letters = ["a", "b", "c", "d"]
-new_letters = []
-letters.each do |first_letter|
-  letters.each do |next_letter|
-    if first_letter != next_letter
-      new_letters << first_letter + next_letter
-    end
-  end
-end
-p new_letters
-
-
 
 #  4. Use a nested loop to find the largest product of any two different numbers within a given array.
 #     For example, [5, -2, 1, -9, -7, 2, 6] becomes 63.
-numbers = [5, -2, 1, -9, -7, 2, 6]
-max = 0
-i = 0
-while i < numbers.length
-  i_2 = 0
-   
-
 
 #  5. Use a nested loop to compute the sum of all the numbers in an array of number pairs.
 #     For example, [[1, 3], [8, 9], [2, 16]] becomes 39.
