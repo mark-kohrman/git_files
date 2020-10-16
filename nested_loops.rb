@@ -45,9 +45,32 @@ while i < letters.length
   end
   i += 1
 end
-p combined
+# p combined
 #  4. Use a nested loop to find the largest product of any two different numbers within a given array.
 #     For example, [5, -2, 1, -9, -7, 2, 6] becomes 63.
+numbers = [5, -2, 1, -20, -7, 2, 6]
+product = 1
+max_product = product * numbers[i]
+i = 0
+while i < numbers.length
+  i2 = 0
+  first_number = numbers[i]
+  while i2 < numbers.length
+    current_number = numbers[i2]
+    if i != i2
+      product = first_number * current_number
+      if product > max_product
+        max_product = product
+      end
+    end
+    numbers[i2]
+  
+    i2 += 1
+  end
+  i += 1
+end
+p max_product
+
 
 #  5. Use a nested loop to compute the sum of all the numbers in an array of number pairs.
 #     For example, [[1, 3], [8, 9], [2, 16]] becomes 39.
