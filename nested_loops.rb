@@ -26,11 +26,26 @@ while i < letters1.length
   end
   i += 1
 end
-print(combined_letters)
+# print(combined_letters)
 
 #  3. Use a nested loop with one array of strings to create a new array that contains every combination of each string with every other string in the array.
 #     For example, ["a", "b", "c", "d"] becomes ["ab", "ac", "ad", "ba", "bc", "bd", "ca", "cb", "cd", "da", "db", "dc"].
-
+letters = ["a", "b", "c", "d"]
+combined = []
+i = 0
+while i < letters.length
+  i2 = 0
+  first_letter = letters[i]
+  while i2 < letters.length
+    current_letter = letters[i2]
+    if current_letter != first_letter
+      combined << first_letter + current_letter
+    end
+    i2 += 1
+  end
+  i += 1
+end
+p combined
 #  4. Use a nested loop to find the largest product of any two different numbers within a given array.
 #     For example, [5, -2, 1, -9, -7, 2, 6] becomes 63.
 
