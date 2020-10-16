@@ -48,7 +48,7 @@ end
 # p combined
 #  4. Use a nested loop to find the largest product of any two different numbers within a given array.
 #     For example, [5, -2, 1, -9, -7, 2, 6] becomes 63.
-numbers = [5, -2, 1, -20, -7, 2, 6]
+numbers = [44, -2, 1, -20, -7, 2, 44, 6, 44]
 product = 1
 max_product = product * numbers[i]
 i = 0
@@ -69,11 +69,20 @@ while i < numbers.length
   end
   i += 1
 end
-p max_product
+# p max_product
 
 
 #  5. Use a nested loop to compute the sum of all the numbers in an array of number pairs.
 #     For example, [[1, 3], [8, 9], [2, 16]] becomes 39.
+number_pairs = [[1, 3], [8, 9], [2, 16]] 
+sum = 0
+i = 0
+number_pairs.each do |number_pair|
+  number_pair.each do |number|
+    sum += number
+  end
+end
+p sum
 
 #  6. Use a nested loop with two arrays of numbers to create a new array of the sums of each combination of numbers.
 #     For example, [1, 2] and [6, 7, 8] becomes [7, 8, 9, 8, 9, 10].
