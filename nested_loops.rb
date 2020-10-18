@@ -100,7 +100,7 @@ while i < first_set.length
   end
   i += 1
 end
-p sum_of_each
+# p sum_of_each
 
 
 #  7. Use a nested loop with an array of numbers to compute an array with every combination of products from each number.
@@ -118,10 +118,29 @@ while i < numbers.length
   end
   i += 1
 end
-p product_numbers
+# p product_numbers
 
 #  8. Use a nested loop to find the largest sum of any two different numbers within an array.
 #     For example, [1, 8, 3, 10] becomes 18.
+numbas = [1, 8, 3, 10]
+i = 0
+largest_sum = numbas[0] + numbas[1]
+numbas.each do |numba1|
+  first_numba = numba1
+  numbas.each do |numba2|
+    current_numba = numba2
+    if current_numba != first_numba
+      current_sum = first_numba + current_numba
+      if current_sum > largest_sum
+        largest_sum = current_numba + first_numba
+      end
+    end
+  end
+end
+p largest_sum
+
+
+
 
 #  9. Use nested loops with an array of numbers to compute a new array containing the first two numbers (from the original array) that add up to the number 10. If there are no two numbers that add up to 10, return false.
 #     For example, [2, 5, 3, 1, 0, 7, 11] becomes [3, 7].
