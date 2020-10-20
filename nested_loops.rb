@@ -137,16 +137,49 @@ numbas.each do |numba1|
     end
   end
 end
-p largest_sum
+
 
 
 
 
 #  9. Use nested loops with an array of numbers to compute a new array containing the first two numbers (from the original array) that add up to the number 10. If there are no two numbers that add up to 10, return false.
 #     For example, [2, 5, 3, 1, 0, 7, 11] becomes [3, 7].
+numbers = [2, 5, 3, 1, 0, 7, 11] 
+array10 = []
+i = 0
+while i < numbers.length
+  i2 = 0
+  first_number = numbers[i]
+  while i2 < numbers.length
+    current_number = numbers[i2]
+    if i2 != i
+      sum = first_number + current_number
+      if sum == 10
+        array10 << first_number
+        array10 << current_number
+        break
+      end
+    end
+    i2 += 1
+  end
+  i += 1
+end
+# p array10
 
 # 10. Use a nested loop to convert an array of string arrays into a single string.
 #     For example, [["a", "man"], ["a", "plan"], ["a", "canal"], ["panama"]] becomes "amanaplanacanalpanama".
+words = [["a", "man"], ["a", "plan"], ["a", "canal"], ["panama"]] 
+string  = ""
+i = 0
+while i < words.length
+  i2 = 0
+  while i2 < words[i].length
+    string << words[i][i2]
+    i2 += 1
+  end
+  i += 1
 
+end
+p string
 
 # SOLUTIONS: https://gist.github.com/peterxjang/af8985dc4fb07ea14b4bd6ba41cb08f8
