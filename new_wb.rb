@@ -8,37 +8,37 @@
 
 
 
-# Description
-# Write a function that prints out every number from 1 to N, with the following exceptions:
+# The Collatz Conjecture or 3x+1 problem can be summarized as follows:
 
-# If the number is divisible by 3, print out "FIZZ".
-# If the number is divisible by 5, print out "BUZZ".
-# If the number is divisible by both 3 and 5, print out "FIZZBUZZ".
+# Take any positive integer n. If n is even, divide n by 2 to get n / 2. If n is odd, multiply n by 3 and add 1 to get 3n + 1. Repeat the process indefinitely. The conjecture states that no matter which number you start with, you will always reach 1 eventually.
 
-## Input: 20
-# Output: 
-# 1, 2, Fizz, 4, Buzz, Fizz, 7, 8, Fizz, Buzz, 11, Fizz, 13, 14, FIZZBUZZ, 16, 17, FIZZ, 19, BUZZ
+# Given a number n, return the number of steps required to reach 1.
 
-#print number, print "Fizz" if divisible by 3, and Print "Buzz" if divisible 5.
-#while loop
-#while i =< n, print n, or fizz, or buzz, or fizzbuzz
+# Input = 6
+# Output = 
+# 6 -- n is even
+# 3  -- 6 / 2... odd
+# 10 -- 3 * 3 +1.. even
+# 5--- 10 / 2
+# 16 -- 5 * 3 + 1 .. even
+# 8 -- 16/2.. even
+# 4 4/2 .. even
+# 2 2/2.. even
+# 1 done
+## if n is even n = n / 2
+## if n is odd n = 3n + 1
+## until n = 1
 
-def fizzbuzz(n)
-  i = 1
-  while i <= n
-    if i % 15 == 0
-      p("FIZZBUZZ")
-    elsif i % 3 == 0
-      p("FIZZ")
-    elsif i % 5 == 0
-      p("BUZZ")
+def collatz(n)
+  while n > 1
+    p n
+    if n % 2 == 0 
+      n = n / 2
     else
-      p(i)
+      n = (3 * n) + 1
     end
-    
-    i += 1
   end
-
+  p n
 end
 
-fizzbuzz(20)
+collatz(12)
