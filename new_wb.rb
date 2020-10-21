@@ -7,25 +7,38 @@
 # Refactor
 
 
-# Input:  
-  #  v                                       
-# [2, 1, 3, 2, 5, 1, 2, 6, 2, 7, 1, 5, 6, 3, 2, 6, 2, 1, 2]
-         
-# Output:
-# [2, 3, 1, 2, 2, 1, 5, 2, 2]
 
+# Description
+# Write a function that prints out every number from 1 to N, with the following exceptions:
 
+# If the number is divisible by 3, print out "FIZZ".
+# If the number is divisible by 5, print out "BUZZ".
+# If the number is divisible by both 3 and 5, print out "FIZZBUZZ".
 
-# create a while loop that has an index that's equal to the current iteration's number
-def skip(array)
-  i = 0
-  skip_array = []
-  while i < array.length
-    current_number = array[i]
-    skip_array << current_number
-    i = i + current_number
+## Input: 20
+# Output: 
+# 1, 2, Fizz, 4, Buzz, Fizz, 7, 8, Fizz, Buzz, 11, Fizz, 13, 14, FIZZBUZZ, 16, 17, FIZZ, 19, BUZZ
+
+#print number, print "Fizz" if divisible by 3, and Print "Buzz" if divisible 5.
+#while loop
+#while i =< n, print n, or fizz, or buzz, or fizzbuzz
+
+def fizzbuzz(n)
+  i = 1
+  while i <= n
+    if i % 15 == 0
+      p("FIZZBUZZ")
+    elsif i % 3 == 0
+      p("FIZZ")
+    elsif i % 5 == 0
+      p("BUZZ")
+    else
+      p(i)
+    end
+    
+    i += 1
   end
-  return skip_array
+
 end
 
-p skip([2, 1, 3, 2, 5, 1, 2, 6, 2, 7, 1, 5, 6, 3, 2, 6, 2, 1, 2])
+fizzbuzz(20)
