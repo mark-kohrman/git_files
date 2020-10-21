@@ -8,37 +8,27 @@
 
 
 
-# The Collatz Conjecture or 3x+1 problem can be summarized as follows:
+# Given two arrays of strings, return a new string that contains every combination of a string from the first array concatenated with a string from the second array.
+#               v           v
+# Input: ["a", "b", "c"], ["d", "e", "f", "g"]
 
-# Take any positive integer n. If n is even, divide n by 2 to get n / 2. If n is odd, multiply n by 3 and add 1 to get 3n + 1. Repeat the process indefinitely. The conjecture states that no matter which number you start with, you will always reach 1 eventually.
+# New_Array = ["ad", "ae", "af", "ag", "bd" ]
+#loop within loop to grab first element and concat with with second
 
-# Given a number n, return the number of steps required to reach 1.
 
-# Input = 6
-# Output = 
-# 6 -- n is even
-# 3  -- 6 / 2... odd
-# 10 -- 3 * 3 +1.. even
-# 5--- 10 / 2
-# 16 -- 5 * 3 + 1 .. even
-# 8 -- 16/2.. even
-# 4 4/2 .. even
-# 2 2/2.. even
-# 1 done
-## if n is even n = n / 2
-## if n is odd n = 3n + 1
-## until n = 1
+# Output: ["ad", "ae", "af", "ag", "bd", "be", "bf", "bg", "cd", "ce", "cf", "cg"]
 
-def collatz(n)
-  while n > 1
-    p n
-    if n % 2 == 0 
-      n = n / 2
-    else
-      n = (3 * n) + 1
+def combine_letters(array1, array2)
+  new_array = []
+  i = 0
+  while i < array1.length
+    i2 = 0
+    while i2 < array2.length
+      new_array << array1[i] + array2[i2]
+      i2 += 1
     end
+    i += 1
   end
-  p n
+  return new_array
 end
-
-collatz(12)
+p combine_letters(["a", "b", "c"], ["d", "e", "f", "g"])
