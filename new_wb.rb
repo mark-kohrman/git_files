@@ -13,20 +13,15 @@
 
 
 hash = {"a" => 1, "b" => 2, "c" => 3, "p" => 5}
-p hash.length
 
-i = 0
 new_array = []
-while i < hash.length
-  key = hash.keys[i]
-  value = hash[key]
+
+hash.each do |key, value|
   new_array << key
   new_array << value
-  i += 1
 end
 
 p new_array
-
 
 
 
