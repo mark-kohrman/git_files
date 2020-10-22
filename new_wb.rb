@@ -7,28 +7,25 @@
 # Refactor
 
 
-# Return the greatest value from an array of numbers.
+# Given an array of numbers, return the product of all the numbers.
 
-                          #  v
-# Input: [59, 170, -4, 40, 12]
+# Input: [1, 2, 3, 9]
+# Output: 54
 
-# Output: 170
+# product = 54
 
-def max(array)
-  max = array[0]
+def product(array)
+  product = 1
   i = 0
 
   while i < array.length
-    current_number = array[i]
-    if current_number > max
-      max = current_number
-    end
+    product *= array[i]
     i += 1
   end
-  return max
+ return product
 end
 
-p max([59, 170, -4, 40, 12])
+p product([1, 2, 3, 9])
 
 
 
