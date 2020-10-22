@@ -7,35 +7,60 @@
 # Refactor
 
 
-# Given an array of strings, return a hash that provides of a count of how many times each string occurs.
+# Description
+# Given an array of social media posts and a hash of users, return a list of posts (as an array of hashes) that replaces the submitted_by id number as the person's actual name.
 
-# Input: ["Dewey", "Truman", "Dewey", "Dewey", "Truman", "Truman", "Dewey", "Truman", "Truman", "Dewey", "Dewey"]
+# For example, given this array of posts (note that the submitted_by is an id number):
+
+# [
+# {title: 'Me Eating Pizza', submitted_by: 231, likes: 1549},
+# {title: 'i never knew how cool i was until now', submitted_by: 989, likes: 3},
+# {title: 'best selfie evar!!!', submitted_by: 111, likes: 1092},
+# {title: 'Mondays are the worst', submitted_by: 403, likes: 644}
+# ]
+
+# And this hash of users (the key is the id number and the value is the user's real name):
+
+# users = {403 => "Aunty Em", 231 => "Joelle P.", 989 => "Lyndon Johnson", 111 => "Patti Q."}
+
+# Return the array of posts as follows:
+
+# [
+# {title: 'Me Eating Pizza', submitted_by: "Joelle P.", likes: 1549},
+# {title: 'i never knew how cool i was until now', submitted_by: "Lyndon Johnson", likes: 3},
+# {title: 'best selfie evar!!!', submitted_by: "Patti Q.", likes: 1092},
+# {title: 'Mondays are the worst', submitted_by: "Aunty Em", likes: 644}
+# ]
+posts = 
+  [
+  {title: 'Me Eating Pizza', submitted_by: 231, likes: 1549},
+  {title: 'i never knew how cool i was until now', submitted_by: 989, likes: 3},
+  {title: 'best selfie evar!!!', submitted_by: 111, likes: 1092},
+  {title: 'Mondays are the worst', submitted_by: 403, likes: 644}
+  ]
+
+users = {403 => "Aunty Em", 231 => "Joelle P.", 989 => "Lyndon Johnson", 111 => "Patti Q."}
+
+new_posts = []
 
 
-# Output: {"Dewey" => 6, "Truman" => 5}
-# make empty hash
-# use while loop to iterate through array
-#if word is not use, use nil and set equal to 0
-# += 1 at the end of the loop
-#return frequencies array
+### replace value of "submitted_by" with name instead of number
+### use each loop
+## add each post to new array
+## loop through each user and if the id key equals the submitted_by value, replace the id with the value
 
-# Explanation: "Dewey" occurs 6 times in the array, while "Truman" occurs 5 times.
-def frequent_words(array)
-  i = 0
-  frequencies = {}
-  while i < array.length
-    current_string = array[i]
-    if frequencies[current_string] == nil
-      frequencies[current_string] = 0
+posts.each do |post|
+  post_id = post[:submitted_by]
+  new_posts <<  post
+  users.each do |id, user_name|
+    if id == post_id
+      name = user_name
+      post[:submitted_by] = name
     end
-    frequencies[current_string] += 1
-    i += 1
-  end 
-  return frequencies
+  end
 end
 
-p frequent_words(["Dewey", "Truman", "Dewey", "Dewey", "Truman", "Truman", "Dewey", "Truman", "Truman", "Dewey", "Dewey", "Hello", "Dewey", "Hello"])
-
+p new_posts
 
 
 
