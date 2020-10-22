@@ -7,28 +7,29 @@
 # Refactor
 
 
-# Given ONE array of strings, return a new array that contains every combination of each string with every other string in the array.
-          # v
-# Input: ["a", "b", "c", "d"]
+# Return the greatest value from an array of numbers.
 
-# Output: ["ab", "ac", "ad", "ba", "bc", "bd", "ca", "cb", "cd", "da", "db", "dc"]
+                          #  v
+# Input: [59, 170, -4, 40, 12]
 
-new_array = [""]
+# Output: 170
 
-def combinations(array)
-  new_array = []
+def max(array)
+  max = array[0]
   i = 0
-  while i < array.length            # array length is 4, i is 0
-    i2 = 0
-    while i2 < array.length         #array length is 4, i2 is 0
-      if i != i2                    #if i doesn't equal i2, then add first index letter to next letter
-        new_array << array[i] + array[i2]  #
-      end
-      i2 += 1
+
+  while i < array.length
+    current_number = array[i]
+    if current_number > max
+      max = current_number
     end
     i += 1
   end
-   return new_array
+  return max
 end
 
-p combinations(["a", "b", "c", "d"])
+p max([59, 170, -4, 40, 12])
+
+
+
+
