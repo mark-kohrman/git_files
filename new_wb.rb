@@ -7,26 +7,31 @@
 # Refactor
 
 
-# Given an array of numbers, return the product of all the numbers.
+# Given an array, return a new array that contains the original array’s values in reverse.
 
-# Input: [1, 2, 3, 9]
-# Output: 54
+          # v
+# Input: [1, 2, 39, 4, 6]
 
-# product = 54
+# Output: [6, 4, 39, 2, 1]
 
-def product(array)
-  product = 1
-  i = 0
+# new_array = [6, 4, 39, 2, 1]
+# make a new empty array
+#start at the back of my input array
+#input each number from the back of input array into new array
+#make a while loop
+#use length - 1 for index to start at and decrement for index
+#return reversed array
 
-  while i < array.length
-    product *= array[i]
-    i += 1
+def reverse(array)            #
+  i = array.length - 1        # i = 0
+  reversed_array = []         # reversed_array [6, 4, 39, 2, 1]
+
+  while i >= 0                  # 1 >= 0
+    reversed_array << array[i]  #
+    i -= 1
   end
- return product
+  return reversed_array
 end
 
-p product([1, 2, 3, 9])
-
-
-
+p reverse([1, 2, 39, 4, 6])
 
