@@ -6,34 +6,26 @@
 # Debugger
 # Refactor
 
+# Given a hash, return a flat array containing all the hash’s keys and values.
 
-# You are given two parameters, an array and a number. Return a hash whose keys are each of the values from the array parameter, and whose values are the number parameter.
+# Input: {“a” => 1, “b” => 2, “c” => 3, “p” => 5}
+# Output: [“a”, 1, “b”, 2, “c”, 3, “p”, 4]
 
-# Input:
 
-# First argument: ["a", "e", "i", "o", "u"]
-# Second argument: 1
-#Make empty hash
-#Loop thru array
-#Set each item equal to 1
-#Print
+hash = {"a" => 1, "b" => 2, "c" => 3, "p" => 5}
+p hash.length
 
-# Output = 
-# {"a"=> 1, "e" => 1, "i" => 1, "o"=> 1, "u" => 1}
-
-def array_to_hash(array)
-  i = 0
-  new_hash = {}              #new_hash = {"a" => 1, }
-  while i < array.length     # i = 0, length = 5
-    new_hash[array[i]] = 1   #
-    i += 1
-  end
-  return new_hash
+i = 0
+new_array = []
+while i < hash.length
+  key = hash.keys[i]
+  value = hash[key]
+  new_array << key
+  new_array << value
+  i += 1
 end
 
-p array_to_hash(["a", "e", "i", "o", "u"])
-
-
+p new_array
 
 
 
