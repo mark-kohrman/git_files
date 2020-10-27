@@ -1,33 +1,38 @@
-# Hashes, also called associative arrays, are dictionary-like data structures which are similar to arrays. Instead of using integers to index an object, however, hashes use any object as its index.
 
-# In this challenge, your task is to create three different Hash collections as explained below.
+# This is a bonus question. Feel free to skip to the next challenge.
 
-# Initialize an empty Hash with the variable name empty_hash
-# Hint
+# HackerRank is written in RoR and we have various classes defined in it. Some of them are
 
-# empty_hash = Hash.new 
-# Initialize an empty Hash with the variable name default_hash and the default value of every key set to 1.
-# Hint
+# Hacker
+# Submission
+# TestCase
+# Contest
+# etc.
 
-# default_hash = Hash.new(1)
-# or
+# You have been given a function where an object which may or may not be of the above mentioned type is sent as an argument. You have to use the case control structure in Ruby to identify the class to which the object belongs and print the following output:
 
-# default_hash = Hash.new
-# default_hash.default = 1
-# Initialize a hash with the variable name hackerrank and having the key-value pairs
+# if Hacker, output "It's a Hacker!"
+# if Submission, output "It's a Submission!"
+# if TestCase, output "It's a TestCase!"
+# if Contest, output "It's a Contest!"
+# for any other object, output "It's an unknown model"
+# Note
 
-# "simmy", 100  
-# "vivmbbs",200
-# Hint
+# use case (switch statement of Ruby)
+# use puts for printing
+# Ruby Docs on case
 
-# hackerrank = {"simmy" => 100, "vivmbbs" => 200}
-# Hash can be defined using a new method
-
-# hackerrank = Hash.new
-# hackerrank["simmy"] = 100
-# hackerrank["vivmbbs"] = 200
-empty_hash = Hash.new
-default_hash = Hash.new(1)
-hackerrank = Hash.new
-hackerrank["simmy"] = 100
-hackerrank["vivmbbs"] = 200
+def identify_class(obj)
+  case obj
+      when Hacker
+        puts "It's a Hacker!"
+      when Submission
+        puts "It's a Submission!"
+      when TestCase
+        puts "It's a TestCase!"
+      when Contest
+        puts "It's a Contest!"
+  else
+    puts "It's an unknown model"
+  end
+end
