@@ -1,13 +1,29 @@
-# In control structures tutorial, we learned about various methods to iterate over a collection like unless, loop and the most commonly used each method.
+# In the previous challenge, we learned about each method being central to all of the methods provided by Enumerable class. One of such useful methods is each_with_index which allows you to iterate over items along with an index keeping count of the item.
 
-# Ruby, however, provides an Enumerable module which packages a bunch of methods which can be used with any other class by including it (referred to as mixing in). That means that programmers don't have to write all those methods many different times for different objects. As long as the custom object defines an each method and includes Enumerable module, it can get access to all of its magic.
+# For example,
 
-# In this challenge, you have been provided with a custom object called colors that defines its own each method. You need to iterate over the items and return an Array containing the values.
+# > colors = ['red', 'green', 'blue']
+# > colors.each_with_index { |item, index| p "#{index}:#{item}" }
+# "0:red"
+# "1:green"
+# "2:blue"
+# As you can note, the counting of items starts from 0.
 
-def iterate_colors(colors)
-  array = []
-  colors.each do |color|
-      array << color
+# In this challenge, your task is to complete the skip_animals method that takes an animals array and a skip integer and returns an array of all elements except first skip number of items as shown in the example below.
+
+# For example,
+
+# > skip_animals(['leopard', 'bear', 'fox', 'wolf'], 2)
+# => ["2:fox", "3:wolf"]
+# It is guaranteed that number of items in animals array is greater than the value of skip.
+
+def skip_animals(animals, skip)
+array = []
+animals.each_with_index do |animal, index|
+  if index >= skip
+    array << "#{index}:#{animal}"
   end
-    return array
+end
+
+return array
 end
