@@ -1,38 +1,13 @@
+# In control structures tutorial, we learned about various methods to iterate over a collection like unless, loop and the most commonly used each method.
 
-# This is a bonus question. Feel free to skip to the next challenge.
+# Ruby, however, provides an Enumerable module which packages a bunch of methods which can be used with any other class by including it (referred to as mixing in). That means that programmers don't have to write all those methods many different times for different objects. As long as the custom object defines an each method and includes Enumerable module, it can get access to all of its magic.
 
-# HackerRank is written in RoR and we have various classes defined in it. Some of them are
+# In this challenge, you have been provided with a custom object called colors that defines its own each method. You need to iterate over the items and return an Array containing the values.
 
-# Hacker
-# Submission
-# TestCase
-# Contest
-# etc.
-
-# You have been given a function where an object which may or may not be of the above mentioned type is sent as an argument. You have to use the case control structure in Ruby to identify the class to which the object belongs and print the following output:
-
-# if Hacker, output "It's a Hacker!"
-# if Submission, output "It's a Submission!"
-# if TestCase, output "It's a TestCase!"
-# if Contest, output "It's a Contest!"
-# for any other object, output "It's an unknown model"
-# Note
-
-# use case (switch statement of Ruby)
-# use puts for printing
-# Ruby Docs on case
-
-def identify_class(obj)
-  case obj
-      when Hacker
-        puts "It's a Hacker!"
-      when Submission
-        puts "It's a Submission!"
-      when TestCase
-        puts "It's a TestCase!"
-      when Contest
-        puts "It's a Contest!"
-  else
-    puts "It's an unknown model"
+def iterate_colors(colors)
+  array = []
+  colors.each do |color|
+      array << color
   end
+    return array
 end
