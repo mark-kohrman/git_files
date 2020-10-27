@@ -6,22 +6,17 @@
 # Debugger
 # Refactor
 
-# Given a hash, return a flat array containing all the hash’s keys and values.
 
-# Input: {“a” => 1, “b” => 2, “c” => 3, “p” => 5}
-# Output: [“a”, 1, “b”, 2, “c”, 3, “p”, 4]
+# Return the sum of all numbers in a given array.
 
+# NOTE: Do not use any built-in language functions that do this automatically for you.
+#                  v
+# Input: [1, 2, 3, 5]
+# Output: 11
+# sum = 11
 
-hash = {"a" => 1, "b" => 2, "c" => 3, "p" => 5}
-
-new_array = []
-
-hash.each do |key, value|
-  new_array << key
-  new_array << value
+def sum_of(array)
+  return array.sum
 end
 
-p new_array
-
-
-
+p sum_of([1, 2, 3, 5])
