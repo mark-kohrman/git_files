@@ -1,29 +1,54 @@
-# In the previous challenge, we learned about each method being central to all of the methods provided by Enumerable class. One of such useful methods is each_with_index which allows you to iterate over items along with an index keeping count of the item.
+# In our previous challenges, we explored some ways to pass arguments to our methods; however, they were limited in terms of the number of arguments we can pass to them. Using default parameters allows us to lower the number of arguments in some cases, but it's not helpful in situations where we need to pass a variable (and potentially very large) number of arguments.
 
-# For example,
+# Consider a method that computes the sum of numbers. Obviously, you wouldn't want to write different methods accounting for some variable number of arguments (e.g.: summing two numbers, three numbers, four numbers, etc.). This is where Ruby's * comes into play. Take a look at the following code:
 
-# > colors = ['red', 'green', 'blue']
-# > colors.each_with_index { |item, index| p "#{index}:#{item}" }
-# "0:red"
-# "1:green"
-# "2:blue"
-# As you can note, the counting of items starts from 0.
+# def sum(first, *rest)
+#     rest.reduce(first) { |o, x| o + x }
+# end
 
-# In this challenge, your task is to complete the skip_animals method that takes an animals array and a skip integer and returns an array of all elements except first skip number of items as shown in the example below.
+# > sum(1) # first = 1, rest = []
+# 1
+# > sum(1, 2) # first = 1, rest = [2]
+# 3
+# > sum(1, 2, 3) # first = 1, rest = [2, 3]
+# 6
+# Prepending an asterisk (*), or splat, to a parameter assigns all of the values starting from that position in the method call to an array named  inside the method. In this case, our method has at least one required parameter named , and then any subsequent values are assigned as an array to .
 
-# For example,
+# Write a method named full_name that generates the full names of people given their first name, followed by some variable number of middle names, followed by their last name.
 
-# > skip_animals(['leopard', 'bear', 'fox', 'wolf'], 2)
-# => ["2:fox", "3:wolf"]
-# It is guaranteed that number of items in animals array is greater than the value of skip.
+# Sample Input 0
 
-def skip_animals(animals, skip)
-array = []
-animals.each_with_index do |animal, index|
-  if index >= skip
-    array << "#{index}:#{animal}"
+# > full_name('Harsha', 'Bhogle')
+# Sample Output 0
+
+# "Harsha Bhogle"
+# Sample Input 1
+
+# > full_name('Pradeep', 'Suresh', 'Satyanarayana')
+# Sample Output 1
+
+# "Pradeep Suresh Satayanarayana"
+# Sample Input 2
+
+# > full_name('Horc', 'G.', 'M.', 'Moon')
+# Sample Output 2
+
+# "Horc G. M. Moon"
+
+def full_name(first, *rest)
+  name = ""
+  i = 0
+  if rest.length > 0
+    name << first + " "
   end
-end
-
-return array
+  
+  while i < rest.length
+      if rest[i] == rest.last
+        name << rest[i]
+      else
+        name << rest[i] + " "
+      end
+      i += 1  
+  end
+  return name
 end
