@@ -33,7 +33,7 @@
 # > full_name('Horc', 'G.', 'M.', 'Moon')
 # Sample Output 2
 
-# "Horc G. M. Moon"
+# "Horc G. M. Moon"""
 
 def full_name(first, *rest)
   name = ""
