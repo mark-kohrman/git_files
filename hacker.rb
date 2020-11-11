@@ -1,54 +1,38 @@
-# In our previous challenges, we explored some ways to pass arguments to our methods; however, they were limited in terms of the number of arguments we can pass to them. Using default parameters allows us to lower the number of arguments in some cases, but it's not helpful in situations where we need to pass a variable (and potentially very large) number of arguments.
+# umbers, boolean values and strings are some of the fundamental data types that we have explored in our previous challenges. In this set of tutorials, we turn our attention to the data type referred to as String or Text literals.
 
-# Consider a method that computes the sum of numbers. Obviously, you wouldn't want to write different methods accounting for some variable number of arguments (e.g.: summing two numbers, three numbers, four numbers, etc.). This is where Ruby's * comes into play. Take a look at the following code:
+# String data types are a sequence of characters, each of which occupies 1 byte of memory. Technically, you could represent the string using an array (or some collection) of characters, similar to that of classic languages like C. Any character outside the ASCII encoding set is restricted in C. How do we represent characters outside this range?
 
-# def sum(first, *rest)
-#     rest.reduce(first) { |o, x| o + x }
-# end
+# Before answering this question, let's learn about the different ways to represent strings,what they mean and their use cases.
 
-# > sum(1) # first = 1, rest = []
-# 1
-# > sum(1, 2) # first = 1, rest = [2]
-# 3
-# > sum(1, 2, 3) # first = 1, rest = [2, 3]
-# 6
-# Prepending an asterisk (*), or splat, to a parameter assigns all of the values starting from that position in the method call to an array named  inside the method. In this case, our method has at least one required parameter named , and then any subsequent values are assigned as an array to .
+# Ruby provides 3 ways of including string literals into your source code.
 
-# Write a method named full_name that generates the full names of people given their first name, followed by some variable number of middle names, followed by their last name.
+# Single quoted strings
+# The easiest way of adding text is by surrounding it with single quote (apostrophe) symbols. However, characters like an apostrophe and a backslash within the string need to be escaped if they are present.
+# > 'Hello! Programmer. How\'s it going?'
+# Double quoted strings
+# Double quoted strings are more flexible, and they allow special escape sequences, e.g.\t, \n, which don't work with single quoted strings. More importantly, they allow the embedding of arbitrary expressions. When a string is created, the expression in the string is evaluated, converted to a string and inserted into the text in place of the expression. This process is known as interpolation.
+# > "Hello! There is a tab \t here. Did you see?"
+# > "My name is Circle, and I love Pi. Pi is equal to #{Math::PI}"
+# Here documents
+# This is helpful for putting large amounts of text without worrying about escape sequences or string evaluation. “Here documents” begin with <<-. These are followed immediately by an identifier or string that specifies the ending delimiter. (No space is allowed, to prevent ambiguity with the left-shift operator.)The text of the string literal begins on the next line and continues until the text of the delimiter appears on a line by itself. For example:
+# document = <<-HERE         # We begin with <<- followed by the ending delimiter HERE
+# This is a string literal.
+# It has two lines and abruptly ends with a newline...
+# HERE
+# (Example from The Ruby Programming Language)
 
-# Sample Input 0
+# In this introductory challenge, your task is to use each of the above three methods to return the text Hello World and others!
 
-# > full_name('Harsha', 'Bhogle')
-# Sample Output 0
+def single_quote
+  return 'Hello World and others!'
+end
 
-# "Harsha Bhogle"
-# Sample Input 1
+def double_quote
+  return "Hello World and others!"
+end
 
-# > full_name('Pradeep', 'Suresh', 'Satyanarayana')
-# Sample Output 1
-
-# "Pradeep Suresh Satayanarayana"
-# Sample Input 2
-
-# > full_name('Horc', 'G.', 'M.', 'Moon')
-# Sample Output 2
-
-# "Horc G. M. Moon"""
-
-def full_name(first, *rest)
-  name = ""
-  i = 0
-  if rest.length > 0
-    name << first + " "
-  end
-  
-  while i < rest.length
-      if rest[i] == rest.last
-        name << rest[i]
-      else
-        name << rest[i] + " "
-      end
-      i += 1  
-  end
-  return name
+def here_doc
+  return <<-HERE
+  Hello World and others!
+  HERE
 end
