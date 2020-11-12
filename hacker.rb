@@ -1,38 +1,42 @@
-# umbers, boolean values and strings are some of the fundamental data types that we have explored in our previous challenges. In this set of tutorials, we turn our attention to the data type referred to as String or Text literals.
+# In Ruby, strings are objects of the String class, which defines a powerful set of operations and methods for manipulating text (e.g., indexing, searching, modifying, etc.). Here are a few easy ways to create Strings:
 
-# String data types are a sequence of characters, each of which occupies 1 byte of memory. Technically, you could represent the string using an array (or some collection) of characters, similar to that of classic languages like C. Any character outside the ASCII encoding set is restricted in C. How do we represent characters outside this range?
+# my_string = "Hello." # create a string from a literal
+# my_empty_string = String.new # create an empty string
+# my_copied_string = String.new(my_string) # copy a string to a new variable
+# Until Ruby , Strings were nothing but a collection of bytes. Data was indexed by byte count, size was in terms of number of bytes, and so on. Since Ruby , Strings have additional encoding information attached to the bytes which provides information on how to interpret them. For example, this code:
 
-# Before answering this question, let's learn about the different ways to represent strings,what they mean and their use cases.
+# str = "With ♥!"
+# print("My String's encoding: ", str.encoding.name) 
+# print("\nMy String's size: ", str.size)
+# print("\nMy String's bytesize: ", str.bytesize)
+# produces this output:
 
-# Ruby provides 3 ways of including string literals into your source code.
+# My String's encoding: UTF-8
+# My String's size: 7
+# My String's bytesize: 9
+# You can make the following observations about the above code:
 
-# Single quoted strings
-# The easiest way of adding text is by surrounding it with single quote (apostrophe) symbols. However, characters like an apostrophe and a backslash within the string need to be escaped if they are present.
-# > 'Hello! Programmer. How\'s it going?'
-# Double quoted strings
-# Double quoted strings are more flexible, and they allow special escape sequences, e.g.\t, \n, which don't work with single quoted strings. More importantly, they allow the embedding of arbitrary expressions. When a string is created, the expression in the string is evaluated, converted to a string and inserted into the text in place of the expression. This process is known as interpolation.
-# > "Hello! There is a tab \t here. Did you see?"
-# > "My name is Circle, and I love Pi. Pi is equal to #{Math::PI}"
-# Here documents
-# This is helpful for putting large amounts of text without worrying about escape sequences or string evaluation. “Here documents” begin with <<-. These are followed immediately by an identifier or string that specifies the ending delimiter. (No space is allowed, to prevent ambiguity with the left-shift operator.)The text of the string literal begins on the next line and continues until the text of the delimiter appears on a line by itself. For example:
-# document = <<-HERE         # We begin with <<- followed by the ending delimiter HERE
-# This is a string literal.
-# It has two lines and abruptly ends with a newline...
-# HERE
-# (Example from The Ruby Programming Language)
+# The string literal creates an object which has several accessible methods.
+# The string has attached encoding information indicating it's an UTF-8 string.
+# A String's size corresponds to the umber of characters we see.
+# A String's bytesize corresponds to the actual space taken by the characters in memory (the ♥ symbol requires  bytes instead of ).
+# Although  is the most popular (and recommended) encoding style for content, Ruby supports  other encodings (try  for the full list). With this in mind, we should learn how to convert between different encodings.
 
-# In this introductory challenge, your task is to use each of the above three methods to return the text Hello World and others!
+# Task
+# In this challenge, we practice setting the encoding information for some string of text using Ruby's Encoding methods. Write a function named transcode which takes a  encoded string as a parameter, converts it to an  encoded string, and returns the result.
 
-def single_quote
-  return 'Hello World and others!'
-end
+# Input Format
 
-def double_quote
-  return "Hello World and others!"
-end
+# Our hidden code checker will call your function, passing it an  encoded string as an argument.
 
-def here_doc
-  return <<-HERE
-  Hello World and others!
-  HERE
-end
+# Constraints
+
+# Your function must be named transcode.
+# Output Format
+
+# Your function must return an  encoded string.
+
+def transcode(string)
+  string.force_encoding(Encoding::UTF_8)
+  return string
+end  
