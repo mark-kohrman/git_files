@@ -1,42 +1,44 @@
-# In Ruby, strings are objects of the String class, which defines a powerful set of operations and methods for manipulating text (e.g., indexing, searching, modifying, etc.). Here are a few easy ways to create Strings:
+# In our encoding tutorial, we learned about the different ways Ruby 1.8 and Ruby 1.9 (and higher versions) represent strings internally. The major difference is a wide range of encoding (non-ascii) support in the later versions. This change, however, also overhauls the way strings were iterated between the two versions.
 
-# my_string = "Hello." # create a string from a literal
-# my_empty_string = String.new # create an empty string
-# my_copied_string = String.new(my_string) # copy a string to a new variable
-# Until Ruby , Strings were nothing but a collection of bytes. Data was indexed by byte count, size was in terms of number of bytes, and so on. Since Ruby , Strings have additional encoding information attached to the bytes which provides information on how to interpret them. For example, this code:
+# In Ruby 1.8, there's a single each method (remember Enumerable?) which allowed it to iterate over lines of data. While it might seem like a logical option to have, how would one go about iterating on each byte or each character? It turns out that it was not so clean, and people had to resort to tricks for some of these functionalities.
 
-# str = "With ♥!"
-# print("My String's encoding: ", str.encoding.name) 
-# print("\nMy String's size: ", str.size)
-# print("\nMy String's bytesize: ", str.bytesize)
-# produces this output:
+# With Ruby 1.9, each was removed from the String class and is no longer an Enumerable. Instead, we have more explicit choices based on what we need to iterate - bytes, chars, lines or codepoints.
 
-# My String's encoding: UTF-8
-# My String's size: 7
-# My String's bytesize: 9
-# You can make the following observations about the above code:
+# each_byte iterates sequentially through the individual bytes that comprise a string;
+# each_char iterates the characters and is more efficient than [] operator or character indexing;
+# each_codepoint iterates over the ordinal values of characters in the string;
+# each_line iterates the lines.
+# For example:
 
-# The string literal creates an object which has several accessible methods.
-# The string has attached encoding information indicating it's an UTF-8 string.
-# A String's size corresponds to the umber of characters we see.
-# A String's bytesize corresponds to the actual space taken by the characters in memory (the ♥ symbol requires  bytes instead of ).
-# Although  is the most popular (and recommended) encoding style for content, Ruby supports  other encodings (try  for the full list). With this in mind, we should learn how to convert between different encodings.
+# > money = "¥1000"
+# > money.each_byte {|x| p x} # first char represented by two bytes
+# 194
+# 165
+# 49
+# 48
+# 48
+# 48
+# > money.each_char {|x| p x} # prints each character
+# "¥"
+# "1"
+# "0"
+# "0"
+# "0"
+# Without a doubt, Ruby 1.9 makes iteration easier to understand and implement. Hence, we'll stick with Ruby 1.9 and later versions for current and other challenges (unless otherwise stated).
 
-# Task
-# In this challenge, we practice setting the encoding information for some string of text using Ruby's Encoding methods. Write a function named transcode which takes a  encoded string as a parameter, converts it to an  encoded string, and returns the result.
+# Challenge: Write the method count_multibyte_char which takes a string as input and returns the number of multibyte characters (byte size > 1) in it.
 
-# Input Format
+# For example:
 
-# Our hidden code checker will call your function, passing it an  encoded string as an argument.
+# > count_multibyte_char('¥1000')
+# 1
 
-# Constraints
-
-# Your function must be named transcode.
-# Output Format
-
-# Your function must return an  encoded string.
-
-def transcode(string)
-  string.force_encoding(Encoding::UTF_8)
-  return string
-end  
+def count_multibyte_char(string)
+  count = 0
+  string.each_byte do |byte|
+      if byte > 194
+          count += 1
+      end
+  end
+  return count
+end
