@@ -1,44 +1,38 @@
-# In our encoding tutorial, we learned about the different ways Ruby 1.8 and Ruby 1.9 (and higher versions) represent strings internally. The major difference is a wide range of encoding (non-ascii) support in the later versions. This change, however, also overhauls the way strings were iterated between the two versions.
 
-# In Ruby 1.8, there's a single each method (remember Enumerable?) which allowed it to iterate over lines of data. While it might seem like a logical option to have, how would one go about iterating on each byte or each character? It turns out that it was not so clean, and people had to resort to tricks for some of these functionalities.
+# Text info can be read from varied sources and is often unsuitable for direct processing or usage by core functions. This necessitates methods for post-processing and data-fixing. In this tutorial, we'll learn how to remove flanking whitespace and newline from strings.
 
-# With Ruby 1.9, each was removed from the String class and is no longer an Enumerable. Instead, we have more explicit choices based on what we need to iterate - bytes, chars, lines or codepoints.
+# String.chomp(separator=$/): Returns a new string with the given separator removed from the end of the string (if present). If $/ has not been changed from the default Ruby record separator, then chomp also removes carriage return characters (that is, it will remove \n, \r, and \r\n).
+# > "Hello World!  \r\n".chomp
+# "Hello World!  "
+# > "Hello World!".chomp("orld!")
+# "Hello W"
+# > "hello \n there".chomp
+# "hello \n there"
+# String.strip - Returns a new string with the leading and trailing whitespace removed.
+# > "    hello    ".strip
+# "hello"
+# > "\tgoodbye\r\n".strip
+# "goodbye"
+# String.chop - Returns a new string with the last character removed. Note that carriage returns (\n, \r\n) are treated as single character and, in the case they are not present, a character from the string will be removed.
+# > "string\n".chop
+# "string"
+# > "string".chop
+# "strin"
+# In this challenge, your task is to code a process_text method, which takes an array of strings as input and returns a single joined string with all flanking whitespace and new lines removed. Each string has to be separated by a single space.
 
-# each_byte iterates sequentially through the individual bytes that comprise a string;
-# each_char iterates the characters and is more efficient than [] operator or character indexing;
-# each_codepoint iterates over the ordinal values of characters in the string;
-# each_line iterates the lines.
-# For example:
+# > process_text(["Hi, \n", " Are you having fun?    "])
+# "Hi, Are you having fun?"
 
-# > money = "¥1000"
-# > money.each_byte {|x| p x} # first char represented by two bytes
-# 194
-# 165
-# 49
-# 48
-# 48
-# 48
-# > money.each_char {|x| p x} # prints each character
-# "¥"
-# "1"
-# "0"
-# "0"
-# "0"
-# Without a doubt, Ruby 1.9 makes iteration easier to understand and implement. Hence, we'll stick with Ruby 1.9 and later versions for current and other challenges (unless otherwise stated).
-
-# Challenge: Write the method count_multibyte_char which takes a string as input and returns the number of multibyte characters (byte size > 1) in it.
-
-# For example:
-
-# > count_multibyte_char('¥1000')
-# 1
-
-def count_multibyte_char(string)
-  count = 0
-  string.each_byte do |byte|
-      if byte > 194
-          count += 1
-      end
+def process_text(array)
+  i = 0 
+  combined_string = ""
+  while i < array.length
+    if array[i] != array[-1]
+      combined_string << array[i].strip + " "
+    else
+      combined_string << array[i].strip
+    end
+    i += 1
   end
-  return count
+  return combined_string
 end
