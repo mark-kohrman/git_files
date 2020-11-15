@@ -45,21 +45,66 @@ p plus_seven
 
 #  5. Start with an array of strings and create a new array with each string's length.
 #     For example, ["hello", "goodbye"] becomes [5, 7].
+words = ["hello", "goodbye"]
+length_of_words = []
+i = 0
+while i < words.length
+  length_of_words << words[i].length
+  i += 1
+end
+
+p length_of_words
 
 #  6. Start with an array of hashes and create a new array of number values from each hash's :age key.
 #     For example, [{name: "Alice", age: 27}, {name: "Blane", age: 16}] becomes [27, 16].
+people = [{name: "Alice", age: 27}, {name: "Blane", age: 16}]
+ages = []
+i = 0
+while i < people.length
+  ages << people[i][:age]
+  i += 1
+end
+p ages
 
 #  7. Start with an array of numbers and create a new array with each number divided by 2.
 #     For example, [1, 2, 3] becomes [0.5, 1.0, 1.5].
-
+numbers = [48, 102, 37]
+divided_numbers = []
+numbers.each do |number|
+  divided_numbers << number / 2.0
+end
+p divided_numbers
 #  8. Start with an array of strings and create a new array with each string's first letter only.
 #     For example, ["hello", "goodbye"] becomes ["h", "g"].
+strings = ["hello", "goodbye"]
+letters = []
+i = 0
+while i < strings.length
+  letters << strings[i][0]
+  i += 1
+end
+p letters
 
 # 9.  Start with an array of hashes and create a new array of number values from each hash's :age key times 2.
 #     For example, [{name: "Alice", age: 27}, {name: "Blane", age: 16}] becomes [54, 32].
+people = [{name: "Alice", age: 27}, {name: "Blane", age: 16}] 
+mult_ages = []
+people.each do |person|
+  mult_ages << person[:age] * 2
+end
+p mult_ages
+
 
 # 10. Start with an array of numbers and create a new array with each number converted into a string.
 #     For example, [1, 2, 3] becomes ["1", "2", "3"].
+numbers = [1, 2, 3] 
+string_numbers = []
+i = 0
+while i < numbers.length
+  string_numbers << numbers[i].to_s
+  i += 1
+end
+p string_numbers
 
 
 # SOLUTIONS (using while loop): https://gist.github.com/peterxjang/b9ac4390aad2301a2238efc95c904f3d
