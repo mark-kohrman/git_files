@@ -1,3 +1,19 @@
+## Reverse a string
+input = "hello"
+        #  0 1 2 3 4
+# output = "olleh"
+# input.length = 5
+
+
+i = input.length - 1
+reversed = ""
+
+while i >= 0
+  reversed << input[i]
+  i -= 1
+end
+p reversed
+
 #  1. Start with an array of numbers and create a new array with each number times 3.
 #     For example, [1, 2, 3] becomes [3, 6, 9].
 numbers = [1, 2, 3]
