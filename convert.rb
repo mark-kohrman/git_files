@@ -1,115 +1,66 @@
 #  1. Convert an array of arrays into a hash.
 #     For example, [[1, 3], [8, 9], [2, 16]] becomes {1 => 3, 8 => 9, 2 => 16}.
-arrays = [[1, 3], [8, 9], [2, 16]]
-hash = {}
+numbers = [[1, 3], [8, 9], [2, 16]]
+numbers_hash = {}
 i = 0
-while i < arrays.length
-  key = arrays[i][0]
-  value = arrays[i][1]
-  hash[key] = value
+while i < numbers.length
+  key = numbers[i][0]
+  value = numbers[i][1]
+  numbers_hash[key] = value
   i += 1
 end
-p hash
-
+p numbers_hash
 
 #  2. Convert an array of hashes into a hash using the :id key from the array's hashes as the keys in the new hash.
 #     For example, [{id: 1, color: "blue", price: 32}, {id: 2, color: "red", price: 12}] becomes {1 => {id: 1, color: "blue", price: 32}, 2 => {id: 2, color: "red", price: 12}}.
-items = [{id: 1, color: "blue", price: 32}, {id: 2, color: "red", price: 12}]
-hash1 = {}
-items.each do |item|
-  key = item[:id]
-  value = item
-  hash1[key] = value
-end
-p hash1
-
 
 #  3. Convert a string into a hash with keys for each letter in the string and values for the number of times the letter appears in the string.
 #     For example, "bookkeeper" becomes {"b" => 1, "o" => 2, "k" => 2, "e" => 3, "p" => 1, "r" => 1}.
-string = "foolhardyyyffh"
+string = "bookeeper"
 string_hash = {}
 i = 0
-while i < string.length 
+while i < string.length
   key = string[i]
-  value = string_hash[key]
-  if value == nil
-    current_value = 1
-    string_hash[key] = current_value
-  else
-    current_value = string_hash[key] + 1
-    string_hash[key] = current_value
+  if string_hash[key] == nil
+    string_hash[key] = 0
   end
-  
+  string_hash[key] += 1
   i += 1
-
 end
 p string_hash
+
 #  4. Convert a hash into an array of arrays.
 #     For example, {"chair" => 100, "book" => 14} becomes [["chair", 100], ["book", 14]].
-stuff =  {"chair" => 100, "book" => 14}
-combined_array = []
-stuff.each do |key, value|
-  combined_array << [key, value]
+items = {"chair" => 100, "book" => 14} 
+item_arrays = []
+items.each do |key, value|
+  item_arrays << [key, value]
 end
-p combined_array
+p item_arrays
+
 #  5. Convert a hash into an array of hashes using the keys from each hash as the :id key in each of the array's hashes.
 #     For example, {321 => {name: "Alice", age: 31}, 322 => {name: "Maria", age: 27}} becomes [{id: 321, name: "Alice", age: 31}, {id: 322, name: "Maria", age: 27}].
 
-people_hash = {321 => {name: "Alice", age: 31}, 322 => {name: "Maria", age: 27}} 
-people_array = []
-people_hash.each do |id, person|
-  person[:id] = id
-  people_array << person
-end
-
-p people_array
 #  6. Convert an array of strings into a hash with keys for each string in the array and values for the number of times the string appears in the array.
 #     For example, ["do", "or", "do", "not"] becomes {"do" => 2, "or" => 1, "not" => 1}.
-words = ["do", "or", "do", "not"] 
-word_frequencies = {}
-words.each do  |word|
-
-  if word_frequencies[word] == nil
-    word_frequencies[word] = 0
-  end
-  word_frequencies[word] += 1
-
-end
-
-p word_frequencies
 
 #  7. Convert a hash into a flat array containing all the hash’s keys and values.
 #     For example, {"a" => 1, "b" => 2, "c" => 3, "d" => 4} becomes ["a", 1, "b", 2, "c", 3, "d", 4].
-letters = {"a" => 1, "b" => 2, "c" => 3, "d" => 4}
-array_letters = []
-letters.each do |key, value|
-  array_letters << key << value
-end
-p array_letters
 
 #  8. Combine data from a hash with names and prices and an array of hashes with names, colors, and weights to make a new hash.
 #     For example, {"chair" => 75, "book" => 15} and [{name: "chair", color: "red", weight: 10}, {name: "book", color: "black", weight: 1}] becomes {"chair" => {price: 75, color: "red", weight: 10}, "book" => {price: 15, color: "black", weight: 1}}.
 
-items = {"chair" => 75, "book" => 15}  
-array_items  = [{name: "chair", color: "red", weight: 10}, {name: "book", color: "black", weight: 1}]
-combined_hash = {}
-items.each do |key, value|
-  p key 
-  p combined_hash[key] = value
-end
-
-
 #  9. Convert an array of hashes into a hash of arrays, using the author as keys and the titles as values.
-#     For example, [{author: "Jeff Smith", title: "Bone"}, {author: "George Orwell", title: "1984"}, {author: "Jeff Smith", title: "RASL"}] becomes {"Jeff Smith" => ["Bone", "RASL"], "George Orwell" => ["1984"]}
+#     For example, [{author: "Jeff Smith", title: "Bone"}, {author: "George Orwell", title: "1984"}, {author: "Jeff Smith", title: "RASL"}] becomes {"Jeff Smith" => ["Bone", "RASL"], "George Orwell" => ["1984"]}.
 
 # 10. Given a hash, create a new hash that has the keys and values switched.
 #     For example, {"a" => 1, "b" => 2, "c" => 3} becomes {1 => "a", 2 => "b", 3 => "c"}.
-lettas = {"a" => 1, "b" => 2, "c" => 3} 
-switched_lettas = {}
-lettas.each do |key, value|
-  switched_lettas[value] = key
-end
-p switched_lettas
 
+letters = {"a" => 1, "b" => 2, "c" => 3}
+switched_letters = {}
+letters.each do |key, value|
+  switched_letters[value] = key
+end
+p switched_letters
 
 # SOLUTIONS: https://gist.github.com/peterxjang/216a7a6e8411ee5c05118e78022f2bc7
