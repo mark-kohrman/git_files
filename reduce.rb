@@ -44,6 +44,17 @@ p combined_sports
 
 # 10. Start with an array of numbers and compute the maximum number.
 #     For example, [5, 10, 8, 3] becomes 10.
+ints = [5, 10, 8, 44, 99, 2, 98, 23, 33, 3] 
+maximum = ints[0]
+i = 0
+while i < ints.length
+  current_number = ints[i]
+  if current_number > maximum
+    maximum = current_number
+  end
+  i += 1
+end
+p maximum
 
 
 # SOLUTIONS (using while loop): https://gist.github.com/peterxjang/376c8931a48549889eb3c9bc091e9f43
