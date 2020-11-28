@@ -1,185 +1,79 @@
 #  1. Use a nested loop to convert an array of number pairs into a single flattened array.
 #     For example, [[1, 3], [8, 9], [2, 16]] becomes [1, 3, 8, 9, 2, 16].
 arrays = [[1, 3], [8, 9], [2, 16]]
-new_array = []
+single_array = []
 i = 0
 while i < arrays.length
   i2 = 0
   while i2 < arrays[i].length
-    new_array << arrays[i][i2]
+    single_array << arrays[i][i2]
     i2 += 1
   end
   i += 1
 end
-
+p single_array
 #  2. Use a nested loop with two arrays of strings to create a new array of strings with each string combined.
 #     For example, ["a", "b", "c"] and ["d", "e", "f", "g"] becomes ["ad", "ae", "af", "ag", "bd", "be", "bf", "bg", "cd", "ce", "cf", "cg"].
-letters1 = ["a", "b", "c"]
-letters2 = ["d", "e", "f", "g"]
-combined_letters = []
-i = 0
-while i < letters1.length
-  i2 = 0
-  while i2 < letters2.length
-    combined_letters << letters1[i] + letters2[i2]
-    i2 += 1
-  end
-  i += 1
-end
-# print(combined_letters)
 
 #  3. Use a nested loop with one array of strings to create a new array that contains every combination of each string with every other string in the array.
 #     For example, ["a", "b", "c", "d"] becomes ["ab", "ac", "ad", "ba", "bc", "bd", "ca", "cb", "cd", "da", "db", "dc"].
 letters = ["a", "b", "c", "d"]
-combined = []
+combo_letters = []
 i = 0
 while i < letters.length
   i2 = 0
-  first_letter = letters[i]
   while i2 < letters.length
-    current_letter = letters[i2]
-    if current_letter != first_letter
-      combined << first_letter + current_letter
+    if letters[i] != letters[i2]
+      combo_letters << letters[i] + letters[i2]
     end
     i2 += 1
   end
   i += 1
 end
-# p combined
+p combo_letters
 #  4. Use a nested loop to find the largest product of any two different numbers within a given array.
 #     For example, [5, -2, 1, -9, -7, 2, 6] becomes 63.
-numbers = [44, -2, 1, -20, -7, 2, 44, 6, 44]
-product = 1
-max_product = product * numbers[i]
-i = 0
-while i < numbers.length
-  i2 = 0
-  first_number = numbers[i]
-  while i2 < numbers.length
-    current_number = numbers[i2]
-    if i != i2
-      product = first_number * current_number
-      if product > max_product
-        max_product = product
-      end
-    end
-    numbers[i2]
-  
-    i2 += 1
-  end
-  i += 1
-end
-# p max_product
-
 
 #  5. Use a nested loop to compute the sum of all the numbers in an array of number pairs.
 #     For example, [[1, 3], [8, 9], [2, 16]] becomes 39.
-number_pairs = [[1, 3], [8, 9], [2, 16]] 
+numbers = [[1, 3], [8, 9], [2, 16]]
 sum = 0
-number_pairs.each do |number_pair|
-  number_pair.each do |number|
-    sum += number
+i = 0
+while i < numbers.length
+  i2 = 0
+  while i2 < numbers[i].length
+    sum += numbers[i][i2]
+    i2 += 1
   end
+  i += 1
 end
-# p sum
-
+p sum
 #  6. Use a nested loop with two arrays of numbers to create a new array of the sums of each combination of numbers.
 #     For example, [1, 2] and [6, 7, 8] becomes [7, 8, 9, 8, 9, 10].
 
-first_set = [1, 2]
-second_set = [6, 7, 8]
-sum_of_each = []
-i = 0
-while i < first_set.length
-  first_number = first_set[i]
-  i2 = 0
-  while i2 < second_set.length
-    second_number = second_set[i2]
-    sum_of_each << first_number + second_number
-    i2 += 1
-  end
-  i += 1
-end
-# p sum_of_each
-
-
 #  7. Use a nested loop with an array of numbers to compute an array with every combination of products from each number.
 #     For example, [2, 8, 3] becomes [4, 16, 6, 16, 64, 24, 6, 24, 9].
-numbers = [2, 8, 3]
-product_numbers = []
-i = 0
-while i < numbers.length
-  i2 = 0
-  first_number = numbers[i]
-  while i2 < numbers.length
-    current_number = numbers[i2]
-    product_numbers << first_number * current_number
-    i2 += 1
-  end
-  i += 1
-end
-# p product_numbers
 
 #  8. Use a nested loop to find the largest sum of any two different numbers within an array.
 #     For example, [1, 8, 3, 10] becomes 18.
-numbas = [1, 8, 3, 10]
-i = 0
-largest_sum = numbas[0] + numbas[1]
-numbas.each do |numba1|
-  first_numba = numba1
-  numbas.each do |numba2|
-    current_numba = numba2
-    if current_numba != first_numba
-      current_sum = first_numba + current_numba
-      if current_sum > largest_sum
-        largest_sum = current_numba + first_numba
-      end
-    end
-  end
-end
-
-
-
-
 
 #  9. Use nested loops with an array of numbers to compute a new array containing the first two numbers (from the original array) that add up to the number 10. If there are no two numbers that add up to 10, return false.
 #     For example, [2, 5, 3, 1, 0, 7, 11] becomes [3, 7].
-numbers = [2, 5, 3, 1, 0, 7, 11] 
-array10 = []
-i = 0
-while i < numbers.length
-  i2 = 0
-  first_number = numbers[i]
-  while i2 < numbers.length
-    current_number = numbers[i2]
-    if i2 != i
-      sum = first_number + current_number
-      if sum == 10
-        array10 << first_number
-        array10 << current_number
-        break
-      end
-    end
-    i2 += 1
-  end
-  i += 1
-end
-# p array10
 
 # 10. Use a nested loop to convert an array of string arrays into a single string.
 #     For example, [["a", "man"], ["a", "plan"], ["a", "canal"], ["panama"]] becomes "amanaplanacanalpanama".
-words = [["a", "man"], ["a", "plan"], ["a", "canal"], ["panama"]] 
-string  = ""
+strings = [["a", "man"], ["a", "plan"], ["a", "canal"], ["panama"]]
+combined_string = ""
 i = 0
-while i < words.length
+while i < strings.length
   i2 = 0
-  while i2 < words[i].length
-    string << words[i][i2]
+  while i2 < strings[i].length
+    combined_string += strings[i][i2]
     i2 += 1
   end
   i += 1
-
 end
-p string
+p combined_string
+
 
 # SOLUTIONS: https://gist.github.com/peterxjang/af8985dc4fb07ea14b4bd6ba41cb08f8
