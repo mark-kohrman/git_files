@@ -53,6 +53,20 @@ p sum
 
 #  7. Use a nested loop with an array of numbers to compute an array with every combination of products from each number.
 #     For example, [2, 8, 3] becomes [4, 16, 6, 16, 64, 24, 6, 24, 9].
+numbers = [2, 8, 3]
+i = 0
+products = []
+while i < numbers.length
+  i2 = 0
+  first_number = numbers[i]
+  while i2 < numbers.length
+    second_number = numbers[i2]
+    products << first_number * second_number
+    i2 += 1
+  end
+  i += 1
+end
+p products
 
 #  8. Use a nested loop to find the largest sum of any two different numbers within an array.
 #     For example, [1, 8, 3, 10] becomes 18.
